@@ -11,7 +11,7 @@ int	check_position(t_tetrimino *tetri, int y, int x)
 		j = 0;
 		while (j < tetri->x)
 		{
-			if (i + y >= g_mapsize || x + j >= g_mapsize)
+			if (i + y >= g_mapsize && x + j >= g_mapsize)
 				return (0);
 			if (map[i + y][j + x] && tetri->map[i][j])
 				return (0);

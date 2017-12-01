@@ -2,16 +2,16 @@
 
 int	solve(t_tetrimino **tetri)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
-	if (!*tetri)
+	if (!tetri)
 		return (1);
-	i = 0;
-	while (i < g_mapsize - (*tetri)->y)
+	i = -1;
+	while (++i < g_mapsize - (*tetri)->y)
 	{
-		j = 0;
-		while (j < g_mapsize - (*tetri)->x)
+		j = -1;
+		while (++j < g_mapsize - (*tetri)->x)
 		{
 			if (check_position(*tetri, i, j))
 			{
@@ -21,9 +21,7 @@ int	solve(t_tetrimino **tetri)
 				else
 					remove_tetri(*tetri, i, j);
 			}
-			j++;
 		}
-		i++;
 	}
 	return (0);
 }
