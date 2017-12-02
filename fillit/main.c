@@ -6,8 +6,18 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 16:59:46 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/02 16:59:50 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/02 20:42:57 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
 
+int		main(int c, char **v)
+{
+	if (c != 2)
+		printf("usage: fillit input_file\n");
+	else
+	{
+		input_handle(v[1]);
+	}
+}

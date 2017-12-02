@@ -6,14 +6,17 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:07:37 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/01 15:25:58 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/02 20:43:08 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "libft.h"
+//# include "libft.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
 
 # define BUFF_SIZE 21
 
@@ -27,6 +30,10 @@ typedef struct	s_tetrimino
 	int			x;
 	char		c;
 }				t_tetrimino;
+
+/*input_handle.c*/
+
+int			input_handle(char *file);
 
 /*solve.c*/
 
