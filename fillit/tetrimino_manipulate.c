@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tetrimino_manipulate.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/03 21:12:52 by achepurn          #+#    #+#             */
+/*   Updated: 2017/12/03 21:16:44 by achepurn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-int	check_position(t_tetrimino *tetri, int y, int x)
+int			check_position(t_tetrimino *tetri, int y, int x)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < tetri->y)
@@ -22,10 +34,10 @@ int	check_position(t_tetrimino *tetri, int y, int x)
 	return (1);
 }
 
-void	add_tetri(t_tetrimino *tetri, int y, int x)
+void		add_tetri(t_tetrimino *tetri, int y, int x)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < tetri->y)
@@ -41,30 +53,29 @@ void	add_tetri(t_tetrimino *tetri, int y, int x)
 	}
 }
 
-void    remove_tetri(t_tetrimino *tetri, int y, int x)
+void		remove_tetri(t_tetrimino *tetri, int y, int x)
 {
-        int     i;
-        int     j;
+	int		i;
+	int		j;
 
-        i = 0;
-        while (i < tetri->y)
-        {
-                j = 0;
-                while (j < tetri->x)
-                {
-                        if (g_map[y + i][x + j] == tetri->c)
-                                g_map[y + i][x + j] = '\0';
-                        j++;
-                }
-                i++;
-        }
+	i = 0;
+	while (i < tetri->y)
+	{
+		j = 0;
+		while (j < tetri->x)
+		{
+			if (g_map[y + i][x + j] == tetri->c)
+				g_map[y + i][x + j] = '\0';
+			j++;
+		}
+		i++;
+	}
 }
 
-
-void	print_tetri(t_tetrimino *tetri)
+void		print_tetri(t_tetrimino *tetri)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < tetri->y)

@@ -1,23 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_manipulate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/03 21:17:08 by achepurn          #+#    #+#             */
+/*   Updated: 2017/12/03 21:22:14 by achepurn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-int     get_mapsize(t_tetrimino **tetri)
+int			get_mapsize(t_tetrimino **tetri)
 {
-        int     tetri_count;
-        int     mapsize;
+	int		tetri_count;
+	int		mapsize;
 
-        tetri_count = 0;
-        while (tetri[tetri_count])
-                tetri_count++;
-        mapsize = 2;
-        while (mapsize * mapsize < tetri_count * 4)
-                mapsize++;
-        return (mapsize);
+	tetri_count = 0;
+	while (tetri[tetri_count])
+		tetri_count++;
+	mapsize = 2;
+	while (mapsize * mapsize < tetri_count * 4)
+		mapsize++;
+	return (mapsize);
 }
 
-char    **init_map(void)
+char		**init_map(void)
 {
-    char    **res;
-	int	i;
+	char	**res;
+	int		i;
 
 	if ((res = (char **)malloc(sizeof(char *) * g_mapsize)))
 	{
@@ -26,12 +38,12 @@ char    **init_map(void)
 		{
 			res[i] = ft_strnew(g_mapsize);
 			i++;
-		}	
+		}
 	}
 	return (res);
 }
 
-void	print_map(void)
+void		print_map(void)
 {
 	int	i;
 	int	j;
@@ -52,4 +64,3 @@ void	print_map(void)
 		i++;
 	}
 }
-
