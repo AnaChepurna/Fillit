@@ -5,18 +5,18 @@ int	solve(t_tetrimino **tetri)
 	int		i;
 	int		j;
 
-	if (!tetri)
+	if (!*tetri)
 		return (1);
 	i = -1;
-	while (++i < g_mapsize - (*tetri)->y)
+	while (++i <= g_mapsize - (*tetri)->y)
 	{
 		j = -1;
-		while (++j < g_mapsize - (*tetri)->x)
+		while (++j <= g_mapsize - (*tetri)->x)
 		{
 			if (check_position(*tetri, i, j))
 			{
 				add_tetri(*tetri, i, j);
-				if (solve(++tetri))
+				if (solve(tetri + 1))
 					return (1);
 				else
 					remove_tetri(*tetri, i, j);
@@ -28,11 +28,11 @@ int	solve(t_tetrimino **tetri)
 
 void	start(t_tetrimino **tetri)
 {
-	g_map = init_map(tetri);
+	g_map = init_map();
 	if (!solve(tetri))
 	{
 		g_mapsize++;
-		ft_arrfree(g_map);
+//		ft_arrfree(g_map);
 		start(tetri);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:15:03 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/03 18:07:41 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 19:38:54 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,6 @@ static int			buff_validate(char *buf)
 	int 			hash;
 	int 			bridge;
 
-	//
-	//printf("%s\n", buf);
-	//
 	hash = 0;
 	bridge = 0;
 	i = -1;

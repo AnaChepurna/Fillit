@@ -6,7 +6,7 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:59:19 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/03 18:16:55 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 19:39:53 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void		create_str(char *buf, int *res, int *x, int y)
 	while (i <= x[1])
 	{
 		if (check_symbol(buf[i + y * 5]))
+		{
 			*res = 0;
+		}
 		else
 			*res = 1;
 		res++;
@@ -68,9 +70,9 @@ int			**create_arr(char *buf, int *x, int *y)
 	i = 0;
 	while (i < height)
 	{
-		if (!(*res = (int *)malloc(sizeof(int) * width)))
+		if (!(res[i] = (int *)malloc(sizeof(int) * width)))
 			exit(0);
-		create_str(buf, *res, x, i);
+		create_str(buf, res[i], x, y[0] + i);
 		i++;
 	}
 	return (res);

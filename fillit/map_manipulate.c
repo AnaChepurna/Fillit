@@ -16,10 +16,10 @@ int     get_mapsize(t_tetrimino **tetri)
 
 char    **init_map(void)
 {
-        char    **res;
+    char    **res;
 	int	i;
 
-	if ((res = (char *)malloc(sizeof(char) * g_mapsize)))
+	if ((res = (char **)malloc(sizeof(char *) * g_mapsize)))
 	{
 		i = 0;
 		while (i < g_mapsize)
@@ -31,7 +31,7 @@ char    **init_map(void)
 	return (res);
 }
 
-void	print_map(void);
+void	print_map(void)
 {
 	int	i;
 	int	j;
@@ -43,12 +43,12 @@ void	print_map(void);
 		while (j < g_mapsize)
 		{
 			if (g_map[i][j])
-				ft_putchar(g_map[i][j]);
+				printf("%c", g_map[i][j]);
 			else
-				ft_putchar('.');
+				printf(".");
 			j++;
 		}
-		ft_putchar('\n');
+		printf("\n");
 		i++;
 	}
 }
