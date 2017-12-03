@@ -6,17 +6,17 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:59:19 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/03 19:39:53 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 21:18:49 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		find_corners(char *buf, int *x, int *y)
+void			find_corners(char *buf, int *x, int *y)
 {
-	int i;
-	int j;
-	
+	int			i;
+	int			j;
+
 	x[0] = 5;
 	x[1] = 0;
 	y[0] = 5;
@@ -38,9 +38,9 @@ void		find_corners(char *buf, int *x, int *y)
 	}
 }
 
-void		create_str(char *buf, int *res, int *x, int y)
+void			create_str(char *buf, int *res, int *x, int y)
 {
-	int i;
+	int			i;
 
 	i = x[0];
 	while (i <= x[1])
@@ -56,12 +56,12 @@ void		create_str(char *buf, int *res, int *x, int y)
 	}
 }
 
-int			**create_arr(char *buf, int *x, int *y)
+int				**create_arr(char *buf, int *x, int *y)
 {
-	int **res;
-	int i;
-	int height;
-	int width;
+	int			**res;
+	int			i;
+	int			height;
+	int			width;
 
 	height = y[1] - y[0] + 1;
 	width = x[1] - x[0] + 1;
@@ -78,11 +78,11 @@ int			**create_arr(char *buf, int *x, int *y)
 	return (res);
 }
 
-void		create_tetri(char *buf, int i)
+void			create_tetri(char *buf, int i)
 {
-	t_tetrimino *tetri;
-	int x[2];
-	int y[2];
+	t_tetrimino	*tetri;
+	int			x[2];
+	int			y[2];
 
 	if (!(tetri = (t_tetrimino *)malloc(sizeof(t_tetrimino))))
 		exit(0);

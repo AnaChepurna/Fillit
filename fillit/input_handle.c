@@ -6,7 +6,7 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:15:03 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/03 19:38:54 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 21:15:15 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static int			check_bridge(char *buf, int i)
 
 static int			symbol_validate(char *buf, int i, int *hash, int *bridge)
 {
-	int 			symbol;
-	
+	int				symbol;
+
 	symbol = check_symbol(buf[i]);
 	if (symbol == 2)
 		return (0);
@@ -49,9 +49,9 @@ static int			symbol_validate(char *buf, int i, int *hash, int *bridge)
 
 static int			buff_validate(char *buf)
 {
-	int 			i;
-	int 			hash;
-	int 			bridge;
+	int			i;
+	int			hash;
+	int			bridge;
 
 	hash = 0;
 	bridge = 0;
@@ -72,14 +72,14 @@ static int			buff_validate(char *buf)
 	return (hash == 4 && bridge >= 3 && i == BUFF_SIZE);
 }
 
-int				input_handle(char *file)
+int					input_handle(char *file)
 {
-	int 		fd;
-	int 		ret;
-	char 		buf[BUFF_SIZE + 1];
-	int			i;
+	int				fd;
+	int				ret;
+	char			buf[BUFF_SIZE + 1];
+	int				i;
 
-	if((fd = open(file, O_RDONLY)) == -1)
+	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
 	i = 0;
 	while ((ret = read(fd, buf, BUFF_SIZE)) && i < 26)

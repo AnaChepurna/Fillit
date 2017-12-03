@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-int	solve(t_tetrimino **tetri)
+int			solve(t_tetrimino **tetri)
 {
 	int		i;
 	int		j;
@@ -26,7 +26,7 @@ int	solve(t_tetrimino **tetri)
 	return (0);
 }
 
-void	start(t_tetrimino **tetri)
+void		start(t_tetrimino **tetri)
 {
 	g_map = init_map();
 	if (!solve(tetri))
