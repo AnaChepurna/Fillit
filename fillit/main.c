@@ -6,7 +6,7 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 16:59:46 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/02 20:42:57 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 15:24:22 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int		main(int c, char **v)
 		printf("usage: fillit input_file\n");
 	else
 	{
-		input_handle(v[1]);
+		if (input_handle(v[1]))
+			printf("valide input!\n");
+		else
+			printf("invalid input!\n");
 	}
 }

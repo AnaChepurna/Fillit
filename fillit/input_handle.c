@@ -6,13 +6,13 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:15:03 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/02 20:42:55 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 15:36:27 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			check_symbol(char c)
+static int			check_symbol(char c)
 {
 	if (c == '#')
 		return (0);
@@ -22,16 +22,16 @@ int			check_symbol(char c)
 		return (2);
 }
 
-int			check_bridge(char *buf, int i)
+static int			check_bridge(char *buf, int i)
 {
 	if (i > 21 || check_symbol(buf[i]))
 		return (0);
 	return (1);
 }
 
-int			symbol_validate(char *buf, int i, int *hash, int *bridge)
+static int			symbol_validate(char *buf, int i, int *hash, int *bridge)
 {
-	int symbol;
+	int 			symbol;
 	
 	symbol = check_symbol(buf[i]);
 	if (symbol == 2)
@@ -47,12 +47,15 @@ int			symbol_validate(char *buf, int i, int *hash, int *bridge)
 	return (1);
 }
 
-int			buff_validate(char *buf)
+static int			buff_validate(char *buf)
 {
-	int i;
-	int hash;
-	int bridge;
+	int 			i;
+	int 			hash;
+	int 			bridge;
 
+	//
+	printf("%s\n", buf);
+	//
 	hash = 0;
 	bridge = 0;
 	i = -1;
@@ -72,12 +75,12 @@ int			buff_validate(char *buf)
 	return (hash == 4 && bridge >= 3 && i == BUFF_SIZE);
 }
 
-int			input_handle(char *file)
+int				input_handle(char *file)
 {
-	int 	fd;
-	int 	ret;
-	char 	buf[BUFF_SIZE + 1];
-	int	i;
+	int 		fd;
+	int 		ret;
+	char 		buf[BUFF_SIZE + 1];
+	int			i;
 
 	if((fd = open(file, O_RDONLY)) == -1)
 		return (0);
@@ -88,7 +91,7 @@ int			input_handle(char *file)
 		if (!buff_validate(buf))
 			return (0);
 		//create_tetri(buf);
-		if (!read(buf, 1))
+		if (!read(fd, buf, 1))
 			return (1);
 		else if (buf[0] != '\n')
 			return (0);
