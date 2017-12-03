@@ -3,7 +3,7 @@
 int	check_position(t_tetrimino *tetri, int y, int x)
 {
 	int	i;
-	int	y;
+	int	j;
 
 	i = 0;
 	while (i < tetri->y)
@@ -13,7 +13,7 @@ int	check_position(t_tetrimino *tetri, int y, int x)
 		{
 			if (i + y >= g_mapsize && x + j >= g_mapsize)
 				return (0);
-			if (map[i + y][j + x] && tetri->map[i][j])
+			if (g_map[i + y][j + x] && tetri->map[i][j])
 				return (0);
 			j++;
 		}
@@ -73,12 +73,12 @@ void	print_tetri(t_tetrimino *tetri)
 		while (j < tetri->x)
 		{
 			if (tetri->map[i][j])
-				ft_putchar(tetri->c);
+				printf("%c", tetri->c);
 			else
-				ft_putchar('.');
+				printf(".");
 			j++;
 		}
 		i++;
-		ft_putchar('\n');
+		printf("\n");
 	}
 }

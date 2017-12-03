@@ -6,7 +6,7 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:07:37 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/02 20:43:08 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/03 18:21:38 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 # define BUFF_SIZE 20
 
@@ -31,9 +32,16 @@ typedef struct	s_tetrimino
 	char		c;
 }				t_tetrimino;
 
+t_tetrimino *g_tetri[27];	
+
 /*input_handle.c*/
 
 int			input_handle(char *file);
+int			check_symbol(char c);
+
+/*tetrimino_create.c*/
+
+void		create_tetri(char *buf, int i);
 
 /*solve.c*/
 

@@ -6,13 +6,13 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:15:03 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/03 15:36:27 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/03 18:07:41 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int			check_symbol(char c)
+int					check_symbol(char c)
 {
 	if (c == '#')
 		return (0);
@@ -54,7 +54,7 @@ static int			buff_validate(char *buf)
 	int 			bridge;
 
 	//
-	printf("%s\n", buf);
+	//printf("%s\n", buf);
 	//
 	hash = 0;
 	bridge = 0;
@@ -90,12 +90,14 @@ int				input_handle(char *file)
 		buf[ret] = '\0';
 		if (!buff_validate(buf))
 			return (0);
-		//create_tetri(buf);
+		create_tetri(buf, i++);
 		if (!read(fd, buf, 1))
+		{
+			g_tetri[i] = NULL;
 			return (1);
+		}
 		else if (buf[0] != '\n')
 			return (0);
-		i++;
 	}
 	return (0);
 }

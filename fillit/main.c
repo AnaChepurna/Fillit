@@ -6,7 +6,7 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 16:59:46 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/03 15:24:22 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/03 18:18:23 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,12 @@ int		main(int c, char **v)
 			printf("valide input!\n");
 		else
 			printf("invalid input!\n");
+		int i = 0;
+		while (g_tetri[i])
+		{
+			print_tetri(*g_tetri);
+			printf("\n");
+			i++;
+		}
 	}
 }
