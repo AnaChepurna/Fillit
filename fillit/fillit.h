@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define BUFF_SIZE 21
+# define BUFF_SIZE 20
 
 char	**g_map;
 int		g_mapsize;

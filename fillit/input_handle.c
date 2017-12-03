@@ -58,7 +58,7 @@ int			buff_validate(char *buf)
 	i = -1;
 	while (buf[++i])
 	{
-		if (i == 4 || i == 9 || i == 14 || i == 19 || i == 20)
+		if (i == 4 || i == 9 || i == 14 || i == 19)
 		{
 			if (buf[i] != '\n')
 				return (0);
@@ -69,7 +69,7 @@ int			buff_validate(char *buf)
 				return (0);
 		}
 	}
-	return (hash == 4 && bridge >= 3);
+	return (hash == 4 && bridge >= 3 && i == BUFF_SIZE);
 }
 
 int			input_handle(char *file)
@@ -77,19 +77,22 @@ int			input_handle(char *file)
 	int 	fd;
 	int 	ret;
 	char 	buf[BUFF_SIZE + 1];
+	int	i;
 
 	if((fd = open(file, O_RDONLY)) == -1)
 		return (0);
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	i = 0;
+	while ((ret = read(fd, buf, BUFF_SIZE)) && i < 26)
 	{
-		if (ret < 20 || buf[0] == '\n')
-			return (0);
 		buf[ret] = '\0';
-		if (buff_validate(buf))
-			printf("Valide!\n");
-		else
-			printf("Not valide!\n");
-		printf("%s\n", buf);
+		if (!buff_validate(buf))
+			return (0);
+		//create_tetri(buf);
+		if (!read(buf, 1))
+			return (1);
+		else if (buf[0] != '\n')
+			return (0);
+		i++;
 	}
 	return (0);
 }
