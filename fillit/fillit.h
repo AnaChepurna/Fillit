@@ -6,7 +6,7 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:07:37 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/04 12:53:19 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 13:38:18 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,12 @@ void			print_tetri(t_tetrimino *tetri);
 int				get_mapsize(void);
 char			**init_map(void);
 void			print_map(void);
+
+/*
+ ** utils.c
+*/
+void			ft_putchar(char *str);
+void			ft_arrfree(char ***res);
+char			*ft_strnew(int size);
 
 #endif
