@@ -6,7 +6,7 @@
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 17:15:03 by dzabrots          #+#    #+#             */
-/*   Updated: 2017/12/04 12:43:19 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 13:40:04 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,3 @@ int					input_handle(char *file)
 	close(fd);
 	return (status);
 }
-

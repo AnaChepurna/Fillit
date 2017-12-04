@@ -6,14 +6,13 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:07:37 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/04 13:38:18 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 13:43:01 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # define BUFF_SIZE 20
-# include "libft/libft.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -70,7 +69,8 @@ void			print_map(void);
 /*
  ** utils.c
 */
-void			ft_putchar(char *str);
+void			ft_putchar(char c);
+void			ft_putstr(char *str);
 void			ft_arrfree(char ***res);
 char			*ft_strnew(int size);
 
