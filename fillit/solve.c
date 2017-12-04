@@ -6,7 +6,7 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 21:27:53 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/04 14:09:27 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 16:48:10 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void			start(t_tetrimino **tetri)
 	g_map = init_map();
 	if (!solve(tetri))
 	{
+		ft_arrfree();
 		g_mapsize++;
-		ft_arrfree(&g_map);
 		start(tetri);
 	}
 }

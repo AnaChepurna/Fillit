@@ -6,7 +6,7 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:07:37 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/04 13:43:01 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 16:25:32 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void			print_map(void);
 */
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
-void			ft_arrfree(char ***res);
+void			ft_arrfree(void);
 char			*ft_strnew(int size);
 
 #endif
