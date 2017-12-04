@@ -6,23 +6,20 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:07:37 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/03 18:21:38 by dzabrots         ###   ########.fr       */
+/*   Updated: 2017/12/04 12:53:19 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-
-//# include "libft.h"
+# define BUFF_SIZE 20
+# include "libft/libft.h"
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 
-# define BUFF_SIZE 20
-
-char	**g_map;
-int		g_mapsize;
+char			**g_map;
+int				g_mapsize;
 
 typedef struct	s_tetrimino
 {
@@ -32,33 +29,42 @@ typedef struct	s_tetrimino
 	char		c;
 }				t_tetrimino;
 
-t_tetrimino *g_tetri[27];	
+t_tetrimino		*g_tetri[27];
 
-/*input_handle.c*/
+/*
+ ** input_handle.c
+*/
+int				input_handle(char *file);
 
-int			input_handle(char *file);
-int			check_symbol(char c);
+/*
+ ** input_validate.c
+*/
+int				check_symbol(char c);
+int				buf_validate(char *buf);
 
-/*tetrimino_create.c*/
+/*
+ ** tetrimino_create.c
+*/
+void			create_tetri(char *buf, int i);
 
-void		create_tetri(char *buf, int i);
+/*
+ ** solve.c
+*/
+void			start(t_tetrimino **tetri);
 
-/*solve.c*/
+/*
+ ** tetrimino_manipulate.c
+*/
+int				check_position(t_tetrimino *tetri, int y, int x);
+void			add_tetri(t_tetrimino *tetri, int y, int x);
+void			remove_tetri(t_tetrimino *tetri, int y, int x);
+void			print_tetri(t_tetrimino *tetri);
 
-int			solve(t_tetrimino **tetri);
-void		start(t_tetrimino **tetri);
-
-/*tetrimino_manipulate.c*/
-
-int			check_position(t_tetrimino *tetri, int y, int x);
-void		add_tetri(t_tetrimino *tetri, int y, int x);
-void		remove_tetri(t_tetrimino *tetri, int y, int x);
-void		print_tetri(t_tetrimino *tetri);
-
-/*map_manipulate.c*/
-
-int			get_mapsize(t_tetrimino **tetri);
-char		**init_map(void);
-void		print_map(void);
+/*
+ ** map_manipulate.c
+*/
+int				get_mapsize(void);
+char			**init_map(void);
+void			print_map(void);
 
 #endif

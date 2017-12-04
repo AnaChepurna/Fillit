@@ -6,19 +6,19 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 21:17:08 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/03 21:24:55 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 12:44:26 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			get_mapsize(t_tetrimino **tetri)
+int			get_mapsize(void)
 {
 	int		tetri_count;
 	int		mapsize;
 
 	tetri_count = 0;
-	while (tetri[tetri_count])
+	while (g_tetri[tetri_count])
 		tetri_count++;
 	mapsize = 2;
 	while (mapsize * mapsize < tetri_count * 4)
@@ -55,12 +55,12 @@ void		print_map(void)
 		while (j < g_mapsize)
 		{
 			if (g_map[i][j])
-				printf("%c", g_map[i][j]);
+				ft_putchar(g_map[i][j]);
 			else
-				printf(".");
+				ft_putchar('.');
 			j++;
 		}
-		printf("\n");
+		ft_putchar('\n');
 		i++;
 	}
 }

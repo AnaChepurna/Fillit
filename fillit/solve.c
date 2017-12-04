@@ -6,13 +6,13 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 21:27:53 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/03 21:28:37 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 12:03:53 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			solve(t_tetrimino **tetri)
+static int		solve(t_tetrimino **tetri)
 {
 	int		i;
 	int		j;
@@ -38,13 +38,13 @@ int			solve(t_tetrimino **tetri)
 	return (0);
 }
 
-void		start(t_tetrimino **tetri)
+void			start(t_tetrimino **tetri)
 {
 	g_map = init_map();
 	if (!solve(tetri))
 	{
 		g_mapsize++;
-//		ft_arrfree(g_map);
+		ft_arrfree(&g_map);
 		start(tetri);
 	}
 }

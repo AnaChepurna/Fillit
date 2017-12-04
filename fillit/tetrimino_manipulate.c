@@ -6,7 +6,7 @@
 /*   By: achepurn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 21:12:52 by achepurn          #+#    #+#             */
-/*   Updated: 2017/12/03 21:16:44 by achepurn         ###   ########.fr       */
+/*   Updated: 2017/12/04 12:13:06 by achepurn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ void		print_tetri(t_tetrimino *tetri)
 		while (j < tetri->x)
 		{
 			if (tetri->map[i][j])
-				printf("%c", tetri->c);
+				ft_putchar(tetri->c);
 			else
-				printf(".");
+				ft_putchar('.');
 			j++;
 		}
 		i++;
-		printf("\n");
+		ft_putchar('\n');
 	}
 }
